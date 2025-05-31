@@ -1,0 +1,15 @@
+Account Holder: Jane Smith  
+Account Number: 9876-5432-1098  
+Account Password: janeSecure456  
+Branch: City Center  
+
+--- Transactions ---  
+Date        | Description                | Credit (₹)  | Debit (₹)  | Balance (₹)  
+------------|----------------------------|-------------|------------|-------------  
+2025-05-02  | Freelance Project Payment  | 30,000.00   |            | 30,000.00  
+2025-05-06  | Restaurant Bill Payment    |             | 1,200.00   | 28,800.00  
+2025-05-12  | Gym Membership Renewal     |             | 3,500.00   | 25,300.00  
+2025-05-18  | Tax Refund Credit          | 5,000.00    |            | 30,300.00  
+2025-05-25  | Loan EMI Payment           |             | 8,000.00   | 22,300.00  
+
+**Note:** All amounts are in INR.  

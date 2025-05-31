@@ -1,0 +1,15 @@
+Account Holder: John Doe  
+Account Number: 1234-5678-9101  
+Account Password: securepass123  
+Branch: Downtown  
+
+--- Transactions ---  
+Date        | Description              | Credit (₹)  | Debit (₹)  | Balance (₹)  
+------------|--------------------------|-------------|------------|-------------  
+2025-05-01  | Salary Credit            | 50,000.00   |            | 50,000.00  
+2025-05-05  | Grocery Store Purchase   |             | 5,000.00   | 45,000.00  
+2025-05-10  | Electricity Bill Payment |             | 3,000.00   | 42,000.00  
+2025-05-15  | Online Shopping          |             | 2,500.00   | 39,500.00  
+2025-05-20  | Fixed Deposit Interest   | 10,000.00   |            | 49,500.00  
+
+**Note:** All amounts are in INR.  
