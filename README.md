@@ -36,9 +36,9 @@ A simple Flask application demonstrating basic encryption & ransomware simulatio
 
 2. **Create a virtual environment (recommended)**
   ```bash
-  python3 -m venv venv
-  source venv/bin/activate
-```
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
@@ -72,6 +72,7 @@ A simple Flask application demonstrating basic encryption & ransomware simulatio
 ---
 
 # 📂 Project Structure
+```bash
 Ransome-Flask/
 ├── app.py
 ├── generate-key.py
@@ -82,6 +83,7 @@ Ransome-Flask/
 ├── simulation_data/
 │ └── sample files for testing
 └── .gitignore
+```
 - **app.py** – main Flask application  
 - **generate-key.py** – script to create the symmetric encryption key  
 - **encrypt-key.py** – handles encrypting files using the key  
