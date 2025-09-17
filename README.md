@@ -108,5 +108,3 @@ Feel free to open issues or submit pull requests. If you have improvements or bu
 
 ---
 
-# 📄 License
-
