@@ -35,22 +35,22 @@ A simple Flask application demonstrating basic encryption & ransomware simulatio
    ```
 
 2. **Create a virtual environment (recommended)**
-  ```bash
+   ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
-3. **Install dependencies**
+5. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
    _If **requirements.txt** isn’t present yet, ensure you install Flask and any encryption libraries you used (e.g. **cryptography**)._
 
-4. **Generate encryption key**
+6. **Generate encryption key**
    ```bash
    python generate-key.py
    ```
    _This will produce an **encryption.key** file._
-5. **Run the app**
+7. **Run the app**
    ```bash
    flask run
    ```
@@ -58,7 +58,7 @@ A simple Flask application demonstrating basic encryption & ransomware simulatio
    ```bash
    python app.py
    ```
-6. **Access in browser**
+8. **Access in browser**
    Open http://localhost:5000 and use the interface to upload/encrypt/decrypt files.
 
 ---
